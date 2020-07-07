@@ -9,8 +9,6 @@
 require "../config.php";
 require "../common.php";
 
-if (isset($_POST['submit'])) {
-  if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
 
   try  {
     $connection = new PDO($dsn, $username, $password, $options);
@@ -28,14 +26,12 @@ if (isset($_POST['submit'])) {
   } catch(PDOException $error) {
       echo $sql . "<br>" . $error->getMessage();
   }
-}
 ?>
 <?php require "templates/header.php"; ?>
         
 <?php  
-if (isset($_POST['submit'])) {
-  if ($result && $statement->rowCount() > 0) { ?>
-    <h2>Results</h2>
+
+    <h2>Related Cyber Intel</h2>
 
     <table>
       <thead>
@@ -63,13 +59,6 @@ if (isset($_POST['submit'])) {
       <?php endforeach; ?>
       </tbody>
     </table>
-    <?php } else { ?>
-      <blockquote>No results found for <?php echo escape($_POST['location']); ?>.</blockquote>
-    <?php } 
-} ?> 
-
-<h2> These are List of existing related news</h2>
-
 
 <a href="index.php">Back to home</a>
 

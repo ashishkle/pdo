@@ -28,7 +28,7 @@ require "../common.php";
 
 ?>
 <?php require "templates/header.php"; ?>
-<h2>Existing Tags</h2>
+<h2>Already configured Tags</h2>
 
     <table>
       <thead>
