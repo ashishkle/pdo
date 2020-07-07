@@ -16,8 +16,8 @@ if (isset($_POST['submit'])) {
     $connection = new PDO($dsn, $username, $password, $options);
     
     $new_user = array(
-      "tagname" => $_POST['tag_value'],
-      "tagdescription"  => $_POST['description']
+      "tag_value" => $_POST['tagname'],
+      "description"  => $_POST['tagdescription']
       
     );
 
@@ -41,13 +41,12 @@ if (isset($_POST['submit'])) {
     <blockquote><?php echo escape($_POST['tagname']); ?> successfully added.</blockquote>
   <?php endif; ?>
 
-  <h2>Add a user</h2>
+  <h2>Add a New CONTEXT  for your need</h2>
 
   <form method="post">
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
-    <label for="tagname">First Name</label>
+    <label for="tagname">Add a new tag</label>
     <input type="text" name="tagname" id="tagname">
-    <input type="submit" name="submit" value="Submit">
     <input type="text" name="tagdescription" id="tagdescription">
     <input type="submit" name="submit" value="Submit">
   </form>
