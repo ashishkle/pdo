@@ -25,7 +25,7 @@ require "../common.php";
   } catch(PDOException $error) {
       echo $sql . "<br>" . $error->getMessage();
   }
-}
+
 ?>
 <?php require "templates/header.php"; ?>
 <h2>Update users</h2>
