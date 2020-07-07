@@ -16,12 +16,12 @@ if (isset($_POST['submit'])) {
     $connection = new PDO($dsn, $username, $password, $options);
 
     $sql = "SELECT * 
-            FROM users
-            WHERE location = :location";
+            FROM on2it_tag";
+            // WHERE location = :location 
 
-    $location = $_POST['location'];
+    //$location = $_POST['location'];
     $statement = $connection->prepare($sql);
-    $statement->bindParam(':location', $location, PDO::PARAM_STR);
+    //$statement->bindParam(':location', $location, PDO::PARAM_STR);
     $statement->execute();
 
     $result = $statement->fetchAll();
@@ -40,25 +40,17 @@ if (isset($_POST['submit'])) {
     <table>
       <thead>
         <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email Address</th>
-          <th>Age</th>
-          <th>Location</th>
-          <th>Date</th>
+          <th>Existing Tag</th>
+          <th>TAG description</th>
+          <th>Related News Feed</th>
         </tr>
       </thead>
       <tbody>
       <?php foreach ($result as $row) : ?>
         <tr>
-          <td><?php echo escape($row["id"]); ?></td>
-          <td><?php echo escape($row["firstname"]); ?></td>
-          <td><?php echo escape($row["lastname"]); ?></td>
-          <td><?php echo escape($row["email"]); ?></td>
-          <td><?php echo escape($row["age"]); ?></td>
-          <td><?php echo escape($row["location"]); ?></td>
-          <td><?php echo escape($row["date"]); ?> </td>
+          <td><?php echo escape($row["tag_value"]); ?></td>
+          <td><?php echo escape($row["description"]); ?></td>
+          <td><a href="cyber-single.php?tag_value=<?php echo escape($row["tag_value"]); ?>">List Cyber Intel</a></td>
         </tr>
       <?php endforeach; ?>
       </tbody>
@@ -68,14 +60,8 @@ if (isset($_POST['submit'])) {
     <?php } 
 } ?> 
 
-<h2>Find user based on location</h2>
+<h2>List of existing tags</h2>
 
-<form method="post">
-  <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
-  <label for="location">Location</label>
-  <input type="text" id="location" name="location">
-  <input type="submit" name="submit" value="View Results">
-</form>
 
 <a href="index.php">Back to home</a>
 
