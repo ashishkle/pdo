@@ -13,7 +13,7 @@ require "../common.php";
     $connection = new PDO($dsn, $username, $password, $options);
 
     $sql = "SELECT * 
-            FROM users ";
+            FROM on2it_tag ";
             //WHERE location = :location";
 
     //$location = $_POST['location'];
@@ -28,31 +28,21 @@ require "../common.php";
 
 ?>
 <?php require "templates/header.php"; ?>
-<h2>Update users</h2>
+<h2>Existing Tags</h2>
 
     <table>
       <thead>
         <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Email Address</th>
-          <th>Age</th>
-          <th>Location</th>
-          <th>Date</th>
+          <th>Existing Tag</th>
+          <th>TAG description</th>
           <th>Related News Feed</th>
         </tr>
       </thead>
       <tbody>
       <?php foreach ($result as $row) : ?>
         <tr>
-          <td><?php echo escape($row["id"]); ?></td>
-          <td><?php echo escape($row["firstname"]); ?></td>
-          <td><?php echo escape($row["lastname"]); ?></td>
-          <td><?php echo escape($row["email"]); ?></td>
-          <td><?php echo escape($row["age"]); ?></td>
-          <td><?php echo escape($row["location"]); ?></td>
-          <td><?php echo escape($row["date"]); ?> </td>
+          <td><?php echo escape($row["tag_value"]); ?></td>
+          <td><?php echo escape($row["description"]); ?></td>
           <td><a href="cyber-single.php?tag_value=<?php echo escape($row["tag_value"]); ?>">List Cyber Intel</a></td>
         </tr>
       <?php endforeach; ?>
