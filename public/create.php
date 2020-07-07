@@ -47,6 +47,7 @@ if (isset($_POST['submit'])) {
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
     <label for="tagname">Add a new tag</label>
     <input type="text" name="tagname" id="tagname">
+    <label for="tagname">Write small description</label>
     <input type="text" name="tagdescription" id="tagdescription">
     <input type="submit" name="submit" value="Submit">
   </form>
