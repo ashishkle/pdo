@@ -15,11 +15,11 @@ require "../common.php";
 
     $sql = "SELECT * 
             FROM on2it_context
-            WHERE newsfeed regexp :tag_value"; 
+            WHERE newsfeed regexp ':tag_value'"; 
 
 
     $statement = $connection->prepare($sql);
-    $statement->bindParam(':tag_value', "$tag_value", PDO::PARAM_STR);
+    $statement->bindParam(':tag_value', $tag_value, PDO::PARAM_STR);
     $statement->execute();
 
     $result = $statement->fetchAll();
