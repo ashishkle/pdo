@@ -29,8 +29,6 @@ require "../common.php";
 ?>
 <?php require "templates/header.php"; ?>
         
-<?php  
-
     <h2>Related Cyber Intel</h2>
 
     <table>
