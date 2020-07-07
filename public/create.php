@@ -16,16 +16,14 @@ if (isset($_POST['submit'])) {
     $connection = new PDO($dsn, $username, $password, $options);
     
     $new_user = array(
-      "firstname" => $_POST['firstname'],
-      "lastname"  => $_POST['lastname'],
-      "email"     => $_POST['email'],
-      "age"       => $_POST['age'],
-      "location"  => $_POST['location']
+      "tagname" => $_POST['tag_value'],
+      "tagdescription"  => $_POST['description']
+      
     );
 
     $sql = sprintf(
       "INSERT INTO %s (%s) values (%s)",
-      "users",
+      "on2it_tag",
       implode(", ", array_keys($new_user)),
       ":" . implode(", :", array_keys($new_user))
     );
@@ -40,23 +38,17 @@ if (isset($_POST['submit'])) {
 <?php require "templates/header.php"; ?>
 
   <?php if (isset($_POST['submit']) && $statement) : ?>
-    <blockquote><?php echo escape($_POST['firstname']); ?> successfully added.</blockquote>
+    <blockquote><?php echo escape($_POST['tagname']); ?> successfully added.</blockquote>
   <?php endif; ?>
 
   <h2>Add a user</h2>
 
   <form method="post">
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
-    <label for="firstname">First Name</label>
-    <input type="text" name="firstname" id="firstname">
-    <label for="lastname">Last Name</label>
-    <input type="text" name="lastname" id="lastname">
-    <label for="email">Email Address</label>
-    <input type="text" name="email" id="email">
-    <label for="age">Age</label>
-    <input type="text" name="age" id="age">
-    <label for="location">Location</label>
-    <input type="text" name="location" id="location">
+    <label for="tagname">First Name</label>
+    <input type="text" name="tagname" id="tagname">
+    <input type="submit" name="submit" value="Submit">
+    <input type="text" name="tagdescription" id="tagdescription">
     <input type="submit" name="submit" value="Submit">
   </form>
 
