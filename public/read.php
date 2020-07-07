@@ -9,9 +9,6 @@
 require "../config.php";
 require "../common.php";
 
-if (isset($_POST['submit'])) {
-  if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
-
   try  {
     $connection = new PDO($dsn, $username, $password, $options);
 
@@ -31,10 +28,7 @@ if (isset($_POST['submit'])) {
 }
 ?>
 <?php require "templates/header.php"; ?>
-        
-<?php  
-  if ($result && $statement->rowCount() > 0) { ?>
-    <h2>Results</h2>
+<h2>Update users</h2>
 
     <table>
       <thead>
@@ -64,9 +58,6 @@ if (isset($_POST['submit'])) {
       <?php endforeach; ?>
       </tbody>
     </table>
-    <?php }    
-?> 
-
 
 <a href="index.php">Back to home</a>
 
