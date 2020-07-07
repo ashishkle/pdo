@@ -50,7 +50,7 @@ if (isset($_POST['submit'])) {
         <tr>
           <td><?php echo escape($row["tag_value"]); ?></td>
           <td><?php echo escape($row["description"]); ?></td>
-          <td><a href="cyber-single.php?id=<?php echo escape($row["tag_value"]); ?>">List Cyber Intel</a></td>
+          <td><a href="cyber-single.php?tag_value=<?php echo escape($row["tag_value"]); ?>">List Cyber Intel</a></td>
           </tr>
       <?php endforeach; ?>
       </tbody>
