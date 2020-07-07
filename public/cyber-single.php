@@ -15,7 +15,7 @@ require "../common.php";
 
     $sql = "SELECT * 
             FROM on2it_context
-            WHERE newsfeed regexp ':tag_value'"; 
+            WHERE newsfeed regexp :tag_value"; 
 
 
     $statement = $connection->prepare($sql);
