@@ -47,6 +47,7 @@ if (isset($_POST['submit'])) {
           <th>Age</th>
           <th>Location</th>
           <th>Date</th>
+          <th>Related News Feed</th>
         </tr>
       </thead>
       <tbody>
@@ -59,6 +60,7 @@ if (isset($_POST['submit'])) {
           <td><?php echo escape($row["age"]); ?></td>
           <td><?php echo escape($row["location"]); ?></td>
           <td><?php echo escape($row["date"]); ?> </td>
+          <td><a href="cyber-single.php?tag_value=<?php echo escape($row["tag_value"]); ?>">List Cyber Intel</a></td>
         </tr>
       <?php endforeach; ?>
       </tbody>
