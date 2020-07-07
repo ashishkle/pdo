@@ -16,12 +16,12 @@ if (isset($_POST['submit'])) {
     $connection = new PDO($dsn, $username, $password, $options);
 
     $sql = "SELECT * 
-            FROM on2it_tag";
-            // WHERE location = :location 
+            FROM on2it_context
+            WHERE newsfeed regexp :tag_value"; 
 
-    //$location = $_POST['location'];
+    $newsfeed = $_POST['tag_value'];
     $statement = $connection->prepare($sql);
-    //$statement->bindParam(':location', $location, PDO::PARAM_STR);
+    $statement->bindParam(':tag_value', $newsfeed, PDO::PARAM_STR);
     $statement->execute();
 
     $result = $statement->fetchAll();
@@ -40,17 +40,25 @@ if (isset($_POST['submit'])) {
     <table>
       <thead>
         <tr>
-          <th>Existing Tag</th>
-          <th>TAG description</th>
-          <th>Related News Feed</th>
+          <th>ID</th>
+          <th>ON2IT CONTEXT</th>
+          <th>Title</th>
+          <th>NewdFeed</th>
+          <th>Link</th>
+          <th>Tag</th>
+          <th>Date</th>
         </tr>
       </thead>
       <tbody>
       <?php foreach ($result as $row) : ?>
         <tr>
-          <td><?php echo escape($row["tag_value"]); ?></td>
-          <td><?php echo escape($row["description"]); ?></td>
-          <td><a href="cyber-single.php?id=<?php echo escape($row["tag_value"]); ?>">List Cyber Intel</a></td>
+          <td><?php echo escape($row["id"]); ?></td>
+          <td><?php echo escape($row["on2itcontext"]); ?></td>
+          <td><?php echo escape($row["title"]); ?></td>
+          <td><?php echo escape($row["newsfeed"]); ?></td>
+          <td><?php echo escape($row["link"]); ?></td>
+          <td><?php echo escape($row["tags"]); ?></td>
+          <td><?php echo escape($row["pub_date"]); ?></td>
           </tr>
       <?php endforeach; ?>
       </tbody>
@@ -60,7 +68,7 @@ if (isset($_POST['submit'])) {
     <?php } 
 } ?> 
 
-<h2>List of existing tags</h2>
+<h2> These are List of existing related news</h2>
 
 
 <a href="index.php">Back to home</a>
