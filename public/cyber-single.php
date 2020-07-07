@@ -17,7 +17,7 @@ require "../common.php";
             FROM on2it_context
             WHERE newsfeed regexp :tag_value"; 
 
-    $newsfeed = $_POST['tag_value'];
+    //$newsfeed = $_POST['tag_value'];
     $statement = $connection->prepare($sql);
     $statement->bindParam(':tag_value', $newsfeed, PDO::PARAM_STR);
     $statement->execute();
