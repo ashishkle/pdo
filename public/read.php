@@ -64,8 +64,8 @@ if (isset($_POST['submit'])) {
       <?php endforeach; ?>
       </tbody>
     </table>
-    <?php } 
-} ?> 
+    <?php }    
+?> 
 
 
 <a href="index.php">Back to home</a>
