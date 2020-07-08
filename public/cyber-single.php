@@ -13,7 +13,7 @@ require "../common.php";
   try  {
     $connection = new PDO($dsn, $username, $password, $options);
     $tag_value = $_GET['tag_value'];
-    $sql = "SELECT id, on2itcontext, title ,link,tags,pub_date
+    $sql = "SELECT id, on2itcontext, title , SUBSTRING(newsfeed, 10, 300) as newsfeed, link,tags,pub_date
             FROM on2it_context
             WHERE newsfeed regexp :tag_value"; 
 
@@ -49,7 +49,7 @@ require "../common.php";
           <td><?php echo escape($row["id"]); ?></td>
           <td><?php echo escape($row["on2itcontext"]); ?></td>
           <td><?php echo escape($row["title"]); ?></td>
-          <td style="max-height: 100px; overflow:hidden; text-overflow: ellipsis;"><?php echo escape($row["newsfeed"]); ?></td>
+          <td><?php echo escape($row["newsfeed"]); ?></td>
           <td><?php echo escape($row["link"]); ?></td>
           <td><?php echo escape($row["tags"]); ?></td>
           <td><?php echo escape($row["pub_date"]); ?></td>
