@@ -9,6 +9,7 @@
 require "../config.php";
 require "../common.php";
 
+$title = $_GET['title'];
 if (isset($_POST['submit'])) {
   if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
 
@@ -54,6 +55,7 @@ if (isset($_POST['submit'])) {
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
     <label for="id">Id of this item </label>
     <label for="topic">Name this Topic </label>
+    <label for="<?php echo $title; ?>"><?php echo ucfirst($title); ?></label>
     <input type="text" name="topic" id="topic" size="100">
 
     <label for="description">Write small description</label>
