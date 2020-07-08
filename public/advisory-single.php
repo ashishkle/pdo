@@ -14,9 +14,9 @@ if (isset($_POST['submit'])) {
 
   try  {
     $connection = new PDO($dsn, $username, $password, $options);
-    
+    $id = $_GET['id'];
     $new_advice = array(
-        $id = $_GET['id'];
+       
         "id"        => $_POST['id'],
         "topic" => $_POST['topic'],
         "description"  => $_POST['description'],
