@@ -13,7 +13,7 @@ require "../common.php";
   try  {
     $connection = new PDO($dsn, $username, $password, $options);
     $tag_value = $_GET['tag_value'];
-    $sql = "SELECT * 
+    $sql = "SELECT id, on2itcontext, title ,link,tags,pub_date
             FROM on2it_context
             WHERE newsfeed regexp :tag_value"; 
 
