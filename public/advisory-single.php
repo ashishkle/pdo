@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Use an HTML form to edit an entry in the
+ * Use an HTML form to create a new entry in the
  * users table.
  *
  */
@@ -12,70 +12,51 @@ require "../common.php";
 if (isset($_POST['submit'])) {
   if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
 
-  try {
+  try  {
     $connection = new PDO($dsn, $username, $password, $options);
-
-    $user =[
-      "id"        => $_POST['id'],
-      "topic" => $_POST['topic'],
-      "description"  => $_POST['description'],
-      "advice"     => $_POST['advice'],
-      "references"       => $_POST['references'],
     
-    ];
+    $new_advice = array(
+        $id = $_GET['id'];
+        "id"        => $_POST['id'],
+        "topic" => $_POST['topic'],
+        "description"  => $_POST['description'],
+        "advice"     => $_POST['advice'],
+        "references"       => $_POST['references'],
+      
+    );
 
-    $sql = "Insert into advice values (
-            :id, 
-            :topic, 
-            :description, 
-            :advice, 
-            :references";
-  
-  $statement = $connection->prepare($sql);
-  $statement->execute($user);
-  } catch(PDOException $error) {
-      echo $sql . "<br>" . $error->getMessage();
-  }
-}
-  
-if (isset($_GET['id'])) {
-  try {
-    $connection = new PDO($dsn, $username, $password, $options);
-    $id = $_GET['id'];
-
-
-    $sql = "SELECT * FROM advice WHERE id = :id";
+    $sql = sprintf(
+      "INSERT INTO %s (%s) values (%s)",
+      "advice",
+      implode(", ", array_keys($new_advice)),
+      ":" . implode(", :", array_keys($new_advice))
+    );
+    
     $statement = $connection->prepare($sql);
-    $statement->bindValue(':id', $id);
-    $statement->execute();
-    
-    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    $statement->execute($new_advice);
   } catch(PDOException $error) {
       echo $sql . "<br>" . $error->getMessage();
   }
-} else {
-    echo "Something went wrong!";
-    exit;
 }
 ?>
-
 <?php require "templates/header.php"; ?>
 
-<?php if (isset($_POST['submit']) && $statement) : ?>
-	<blockquote><?php echo escape($_POST['id']); ?> successfully updated.</blockquote>
-<?php endif; ?>
+  <?php if (isset($_POST['submit']) && $statement) : ?>
+    <blockquote><?php echo escape($_POST['topic']); ?> successfully added.</blockquote>
+  <?php endif; ?>
 
-<h2>Edit a user</h2>
+  <h2>Add a New CONTEXT  for your need</h2>
 
-<form method="post">
+  <form method="post">
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
-    <?php foreach ($user as $key => $value) : ?>
-      <label for="<?php echo $key; ?>"><?php echo ucfirst($key); ?></label>
-	    <input type="text" name="<?php echo $key; ?>" id="<?php echo $key; ?>" value="<?php echo escape($value); ?>" <?php echo ($key === 'id' ? 'readonly' : null); ?>>
-    <?php endforeach; ?> 
+    <label for="topic">Add a new advice</label>
+    <input type="text" name="topic" id="topic">
+    <label for="topic">Write small description</label>
+    <input type="text" name="tagdescription" id="tagdescription">
     <input type="submit" name="submit" value="Submit">
-</form>
+  </form>
 
-<a href="index.php">Back to home</a>
+  <a href="index.php">Back to home</a>
 
 <?php require "templates/footer.php"; ?>
+
