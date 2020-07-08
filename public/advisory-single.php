@@ -21,7 +21,7 @@ if (isset($_POST['submit'])) {
         "topic" => $_POST['topic'],
         "description"  => $_POST['description'],
         "advice"     => $_POST['advice'],
-        "references"       => $_POST['references'],
+        "references"       => $_POST['references']
       
     );
 
@@ -56,12 +56,16 @@ if (isset($_POST['submit'])) {
     <label for="id">Id of this item </label>
     <label for="topic">Name this Topic </label>
     <input type="text" name="topic" id="topic" size="100">
-    <label for="advice">Add a new advice</label>
-    <input type="text" name="advice" id="advice" size="300">
+
     <label for="description">Write small description</label>
     <input type="text" name="description" id="description" size="600" >
+    
+    <label for="advice">Add a new advice</label>
+    <input type="text" name="advice" id="advice" size="300">
+ 
     <label for="references">Add reference to your Analysis</label>
     <input type="text" name="references" id="references" size="300">
+   
     <input type="submit" name="submit" value="Submit">
   </form>
 
