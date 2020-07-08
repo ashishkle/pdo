@@ -32,6 +32,7 @@ if (isset($_POST['submit'])) {
     );
     
     $statement = $connection->prepare($sql);
+    echo $sql;
     $statement->execute($new_advice);
   } catch(PDOException $error) {
       echo $sql . "<br>" . $error->getMessage();
