@@ -42,7 +42,7 @@ if (isset($_GET['id'])) {
   try {
     $connection = new PDO($dsn, $username, $password, $options);
     $id = $_GET['id'];
-    $topic = $_GET['topic'];
+
 
     $sql = "SELECT * FROM advice WHERE id = :id";
     $statement = $connection->prepare($sql);
@@ -62,7 +62,7 @@ if (isset($_GET['id'])) {
 <?php require "templates/header.php"; ?>
 
 <?php if (isset($_POST['submit']) && $statement) : ?>
-	<blockquote><?php echo escape($_POST['topic']); ?> successfully updated.</blockquote>
+	<blockquote><?php echo escape($_POST['id']); ?> successfully updated.</blockquote>
 <?php endif; ?>
 
 <h2>Edit a user</h2>
