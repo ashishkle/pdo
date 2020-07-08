@@ -53,9 +53,10 @@ if (isset($_POST['submit'])) {
 
   <form method="post">
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
-    <label for="id">Id of this item </label>
-    <label for="topic">Name this Topic </label>
     <label for="<?php echo $title; ?>"><?php echo ucfirst($title); ?></label>
+    <label for="<?php echo $Id of this item;?>"<?php echo $id; ?>"> </label>
+    <label for="topic">Name this Topic </label>
+    
     <input type="text" name="topic" id="topic" size="100">
 
     <label for="description">Write small description</label>
