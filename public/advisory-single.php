@@ -10,6 +10,7 @@ require "../config.php";
 require "../common.php";
 
 $title = $_GET['title'];
+$id = $_GET['id'];
 if (isset($_POST['submit'])) {
   if (!hash_equals($_SESSION['csrf'], $_POST['csrf'])) die();
 
