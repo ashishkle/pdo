@@ -45,7 +45,7 @@ require "../common.php";
       </thead>
       <tbody>
       <?php foreach ($result as $row) : ?>
-        <tr style="line-height: 100px">
+        <tr style="height: 100px">
           <td><?php echo escape($row["id"]); ?></td>
           <td><?php echo escape($row["on2itcontext"]); ?></td>
           <td><?php echo escape($row["title"]); ?></td>
