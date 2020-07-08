@@ -49,7 +49,7 @@ require "../common.php";
           <td><?php echo escape($row["id"]); ?></td>
           <td><?php echo escape($row["on2itcontext"]); ?></td>
           <td><?php echo escape($row["title"]); ?></td>
-          <td style="height:100px"><?php echo escape($row["newsfeed"]); ?></td>
+          <td><?php echo escape($row["newsfeed"]); ?></td>
           <td><?php echo escape($row["link"]); ?></td>
           <td><?php echo escape($row["tags"]); ?></td>
           <td><?php echo escape($row["pub_date"]); ?></td>
