@@ -45,14 +45,16 @@ if (isset($_POST['submit'])) {
     <blockquote><?php echo escape($_POST['topic']); ?> successfully added.</blockquote>
   <?php endif; ?>
 
-  <h2>Add a New CONTEXT  for your need</h2>
+  <h2>Add a New ADVICE for This newsfeed post Analysis</h2>
 
   <form method="post">
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
     <label for="topic">Add a new advice</label>
     <input type="text" name="topic" id="topic">
-    <label for="topic">Write small description</label>
-    <input type="text" name="tagdescription" id="tagdescription">
+    <label for="description">Write small description</label>
+    <input type="text" name="description" id="description">
+    <label for="references">Add reference to your Analysis</label>
+    <input type="text" name="references" id="references">
     <input type="submit" name="submit" value="Submit">
   </form>
 
