@@ -4,11 +4,13 @@ label {
 }
 
 table {
+	table-layout:fixed;
 	border-collapse: collapse;
 	border-spacing: 0;
 }
 
 td {
+	overflow:hidden;
 	border: 1px solid black;
 }
 th {
