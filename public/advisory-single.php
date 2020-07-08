@@ -17,7 +17,7 @@ if (isset($_POST['submit'])) {
     $id = $_GET['id'];
     $new_advice = array(
        
-        "id"        => $_POST['id'],
+        "id"        => $id,
         "topic" => $_POST['topic'],
         "description"  => $_POST['description'],
         "advice"     => $_POST['advice'],
