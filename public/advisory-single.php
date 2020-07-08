@@ -49,12 +49,13 @@ if (isset($_POST['submit'])) {
 
   <form method="post">
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
+    <label for="id">Id of this item </label>
     <label for="topic">Name this Topic </label>
     <input type="text" name="topic" id="topic" size="100">
     <label for="topic">Add a new advice</label>
     <input type="text" name="advice" id="advice" size="300">
     <label for="description">Write small description</label>
-    <input type="textarea" name="description" id="description" size="600" >
+    <input type="text" name="description" id="description" size="600" >
     <label for="references">Add reference to your Analysis</label>
     <input type="text" name="references" id="references" size="300">
     <input type="submit" name="submit" value="Submit">
