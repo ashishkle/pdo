@@ -34,7 +34,7 @@ require "../common.php";
     <table>
       <thead>
         <tr>
-          <th>ID</th>
+          <th>Analyse and Advice</th>
           <th>ON2IT CONTEXT</th>
           <th>Title</th>
           <th>NewdFeed</th>
@@ -46,7 +46,7 @@ require "../common.php";
       <tbody>
       <?php foreach ($result as $row) : ?>
         <tr >
-          <td><?php echo escape($row["id"]); ?></td>
+        <td><a href="advisory-single.php?id=<?php echo escape($row["id"]); ?>">Add Advisory</a></td>
           <td><?php echo escape($row["on2itcontext"]); ?></td>
           <td><?php echo escape($row["title"]); ?></td>
           <td><?php echo escape($row["newsfeed"]); ?></td>
