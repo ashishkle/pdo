@@ -47,9 +47,8 @@ if (isset($_POST['submit'])) {
 
   <h2>Add a ADVICE for This newsfeed post Analysis</h2>
 
-  <?php if (isset($_GET['title']) && $statement) : ?>
-	<blockquote><?php echo escape($_GET['title']); ?> successfully updated.</blockquote>
-  <?php endif; ?>
+  <h2>  $_GET['title'] </h2>
+	
 
   <form method="post">
     <input name="csrf" type="hidden" value="<?php echo escape($_SESSION['csrf']); ?>">
