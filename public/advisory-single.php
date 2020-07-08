@@ -54,7 +54,7 @@ if (isset($_POST['submit'])) {
     <label for="topic">Add a new advice</label>
     <input type="text" name="advice" id="advice" size="300">
     <label for="description">Write small description</label>
-    <input type="text" name="description" id="description" size="600" >
+    <input type="textarea" name="description" id="description" size="600" >
     <label for="references">Add reference to your Analysis</label>
     <input type="text" name="references" id="references" size="300">
     <input type="submit" name="submit" value="Submit">
