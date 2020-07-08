@@ -45,9 +45,9 @@ if (isset($_POST['submit'])) {
     <blockquote><?php echo escape($_POST['topic']); ?> successfully added.</blockquote>
   <?php endif; ?>
 
-  <h2>Add a ADVICE for This newsfeed post Analysis</h2>
+  <h2>Add a ADVICE for This newsfeed with your Analysis</h2>
 
-  <h2>  $_GET['title'] </h2>
+  <h2><?php  $_GET['title'] ?> </h2>
 	
 
   <form method="post">
