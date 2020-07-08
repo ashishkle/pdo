@@ -28,8 +28,7 @@ if (isset($_POST['submit'])) {
     $sql = sprintf(
       "INSERT INTO %s (%s) values (%s)",
       "advice",
-      implode(", ", array_keys($new_advice)),
-      ":" . implode(", :", array_keys($new_advice))
+      implode(", ", array_keys($new_advice)) //, ":" . implode(", :", array_keys($new_advice))
     );
     
     $statement = $connection->prepare($sql);
